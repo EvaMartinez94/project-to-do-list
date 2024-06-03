@@ -2,7 +2,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Main { 
 
     private ArrayList <String> list1 = new ArrayList<>();
     private ArrayList <Boolean> list2 = new ArrayList<>();
