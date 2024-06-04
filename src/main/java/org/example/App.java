@@ -9,10 +9,26 @@ public final class App {
     private ArrayList<Boolean> list2 = new ArrayList<>();
     private int taskNumber = 0;
     private Scanner sc = new Scanner(System.in);
-    private boolean selectMenuOption = true;
 
+     public void readTasks() {
+        System.out.println("This is your current Task List: ");
+        
+        for (int i=0; i<list1.size();i++) {
+            boolean crossedTask = list2.get(i);
+            String crossed = "";
+            if( crossedTask == true)
+                {
+                crossed = ".[X]";
+                }
+            else 
+                {
+                crossed = ".[ ]";
+                }
+            System.out.println((i+1)+crossed+list1.get(i));
+            }
+    }
 
-    public void updateTasks() {
+   public void updateTasks() {
         printStaticMessage();
         int taskNumber = sc.nextInt();
         boolean taskCompleted;
@@ -29,4 +45,5 @@ public final class App {
         App app = new App();
         app.updateTasks();
     }
+
 }
