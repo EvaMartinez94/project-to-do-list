@@ -40,10 +40,18 @@ public final class App {
     public static void printStaticMessage() {
         System.out.println("What task do you want to mark as completed? Enter the number of task: ");
     }
-    //readTasks();
+    
     public static void main(String[] args) {
         App app = new App();
         app.updateTasks();
     }
+  public static void deletetask() {
+        System.out.println("Choose which task would you  like to delete: ");
+        readTasks()
+        int del = sc.nextInt();
+        list1.remove(del-1);
+        list2.remove( del-1);
+    }
 
 }
+
