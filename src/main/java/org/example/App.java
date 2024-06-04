@@ -8,11 +8,35 @@ public final class App {
     private ArrayList<String> list1 = new ArrayList<>();
     private ArrayList<Boolean> list2 = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
- 
-    private void addTask() {
+    boolean otherOption = true;
+
+    public void run () {
+
+        do {
+            System.out.println("Welcome to the ToDo List:\n " + "1. Add Task.\n 2. List Task.\n 3. Mark Task as Complete.\n 4. Delete Task.\n 5. Exit.\n" +
+                "Select an option:");
+            int optionNumber = sc.nextInt();
+            sc.nextLine();
+            if (optionNumber == 1) {
+                addTasks();
+            } else if (optionNumber == 2) {
+                readTasks();
+            } else if (optionNumber == 3) {
+                updateTasks();
+            } else if (optionNumber == 4) {
+                deleteTasks();
+            } else if (optionNumber == 5) {
+                System.out.println("If you have come this far it is because you have read our work, thank you for your time ;P");
+                otherOption=false;
+            }
+        } while (otherOption);
+    }
+
+    public void addTasks() {
         System.out.print("\n" +
-                "Enter the description of the new task");
+                "Enter the description of the new task: ");
         String task = sc.nextLine();
+        System.out.println(task);
         list1.add(task);
         list2.add(false);
         System.out.println("Task added successfully.");
@@ -40,8 +64,8 @@ public final class App {
         int taskNumber = sc.nextInt();
         boolean taskCompleted;
         list2.set(taskNumber-1, true);
-        System.out.println("Modified ArrayList: " + list2);
         System.out.println("Your task has been modified");
+        readTasks();
     }
 
     public static void printStaticMessage() {
@@ -50,14 +74,13 @@ public final class App {
     
     public static void main(String[] args) {
         App app = new App();
-        app.updateTasks();
+        app.run();
     }
-  public static void deletetask() {
+  public void deleteTasks() {
         System.out.println("Choose which task would you  like to delete: ");
-        readTasks()
+        readTasks();
         int del = sc.nextInt();
         list1.remove(del-1);
         list2.remove( del-1);
     }
-
 }
