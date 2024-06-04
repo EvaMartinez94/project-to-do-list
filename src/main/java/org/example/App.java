@@ -1,17 +1,16 @@
 package org.example;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public final class App {
-    
-    private ArrayList <String> list1 = new ArrayList<>();
-    private ArrayList <Boolean> list2 = new ArrayList<>();
+
+    private ArrayList<String> list1 = new ArrayList<>();
+    private ArrayList<Boolean> list2 = new ArrayList<>();
     private int taskNumber = 0;
     private Scanner sc = new Scanner(System.in);
-    private boolean selectMenuOption = true; 
-    private boolean addNewTask = true;
-    
-    public void readTasks() {
+
+     public void readTasks() {
         System.out.println("This is your current Task List: ");
         
         for (int i=0; i<list1.size();i++) {
@@ -28,5 +27,23 @@ public final class App {
             System.out.println((i+1)+crossed+list1.get(i));
             }
     }
-    public static void main(String[] args) {}
+
+   public void updateTasks() {
+        printStaticMessage();
+        int taskNumber = sc.nextInt();
+        boolean taskCompleted;
+        list2.set(taskNumber-1, true);
+        System.out.println("Modified ArrayList: " + list2);
+        System.out.println("Your task has been modified");
+    }
+
+    public static void printStaticMessage() {
+        System.out.println("What task do you want to mark as completed? Enter the number of task: ");
+    }
+    //readTasks();
+    public static void main(String[] args) {
+        App app = new App();
+        app.updateTasks();
+    }
+
 }
