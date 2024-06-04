@@ -7,9 +7,16 @@ public final class App {
 
     private ArrayList<String> list1 = new ArrayList<>();
     private ArrayList<Boolean> list2 = new ArrayList<>();
-    private int taskNumber = 0;
     private Scanner sc = new Scanner(System.in);
-
+ 
+    private void addTask() {
+        System.out.print("\n" +
+                "Enter the description of the new task");
+        String task = sc.nextLine();
+        list1.add(task);
+        list2.add(false);
+        System.out.println("Task added successfully.");
+    }
      public void readTasks() {
         System.out.println("This is your current Task List: ");
         
@@ -54,4 +61,3 @@ public final class App {
     }
 
 }
-
